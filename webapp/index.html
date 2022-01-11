@@ -10,47 +10,33 @@
 	<title>Walk-er Step Count Challenge 2022</title>
   <link rel="stylesheet" type="text/css" href="Jan10.css">
 	<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@700&display=swap" rel="stylesheet">
-
-<script src="papaparse.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>	</script>
 
 </head>
-
 <body>
-
-
-<div class = "center-screen">
-<h1>We have walked</h1>
-<result></result>
-<h1 class="topmargin">steps so far.</h1>
-</div>
-
-<div class="tooltip">?
-  <span class="tooltiptext"><p>Anna likes to have fun with the code using the data from our walking challenge. Last year she used AfterEffects to produce a wondrous data-driven animation, and this year she is going to chronicle a different coding project day-by-day (or, more likely, whenever she has time and feels like it).</p><p>Each iteration will build on the one before (maybe) and Anna has no idea where it will end up, and that's OK by her.</p></span>
-</div>
-
-
+	<div class = "center-screen">
+	<p id="intro">We have walked</p>
+	<result id="result"></result>
+	<p id="intro">steps so far.</p>
+	</div>
 <script>
-	var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT3-zWwgAdZfFuspr0JNllT13aqOQTf1hV-VR4SHRf4iFj2ilw3rpLLb1me8ANmbVrHM2UFkKOJQ9mv/pub?gid=344072195&single=true&output=csv"
-	var result = document.querySelector("result");
+	//create the arrays we're about to call.
+	var Steps_Total = [];
 
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState == 4 && xhr.status == 200){
-			const data = Papa.parse(xhr.responseText);
-			const contents = data.data;
-			const TotalSteps = new Intl.NumberFormat().format(contents[0][1]);
-			console.log(contents)
-			result.innerText = TotalSteps;
+$(document).ready(function(){
+//Get data for total steps
+$.getJSON('https://opensheet.elk.sh/1ge_ZNYXJvtNHTmuO9qp8sUx2IMug40MvEsmrXa7KXDY/TOT',
+function (data) {
+		for (var i = 0; i < data.length; i++) {
+			 Steps_Total.push(data[i].STEPS_TOTAL);
+			 //console.log("we walked " + new Intl.NumberFormat().format(Steps_Total));
+			 const Steps_Total_Format = new Intl.NumberFormat().format(Steps_Total);
+			 //console.log(Steps_Total_Format);
+			 document.getElementById("result").innerHTML = Steps_Total_Format;
 		}
-	};
-	xhr.open("GET","https://cors-anywhere.herokuapp.com/"+url,true);
-	xhr.send();
-
+});
+})
 </script>
 </div>
-
-
-
 </body>
 </html>
