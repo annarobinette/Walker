@@ -40,8 +40,7 @@
 			const data = Papa.parse(xhr.responseText);
 			const contents = data.data;
 			const TotalSteps = new Intl.NumberFormat().format(contents[0][1]);
-			console.log(contents)
-			result.innerText = TotalSteps;
+			result.innerHTML = TotalSteps;
 		}
 	};
 	xhr.open("GET","https://cors-anywhere.herokuapp.com/"+url,true);
