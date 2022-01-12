@@ -6,41 +6,71 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="description" content="Anna's coding experiments.">
-	<title>Walk-er Step Count Challenge 2022</title>
+	<title>Walk-er Step Count Challenge 2022 |
+		<script> var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = today.toLocaleString('default', { month: 'long' });
+		today = dd + ' ' + mm;
+		document.write(today);</script>
+	</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="Jan11.css">
+  <link rel="stylesheet" type="text/css" href="Jan13.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;700&display=swap" rel="stylesheet">
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
 <!--	<script src="Color_change.js"></script> -->
 
 </head>
 <body>
+	<div class="left"><p class="date">
+		<script>
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = today.toLocaleString('default', { month: 'long' });
+			var yyyy = today.getFullYear();
+			today = dd + ' ' + mm + ' ' + yyyy;
+			document.write(today);
+		</script>
+	</p></div>
+
 	<div class="center">
-			<p id="above">We have walked</p>
-			<p id="result"></p>
-			<p id="below">steps so far.</p>
+			<p id="above"></br>We have walked</p>
+			<p id="totalresult"></p>
+			<p id="below">steps so far,</p>
+			<p id="above">which is equal to</p>
+			<p id="KMresult"></p>
 	</div>
 <div class="tooltip">?
-  <span class="tooltiptext">Anna likes to have fun with the code using the data from our walking challenge. Last year she used AfterEffects to produce a wondrous data-driven animation, and this year she is going to chronicle a different coding project day-by-day (or, more likely, whenever she has time and feels like it).</br></br>Each iteration will build on the one before (maybe) and Anna has no idea where it will end up, and that's OK by her.</span>
+  <span class="tooltiptext"><b>UPDATE 13 January 2021</b></br> Added in today's date and new data field.</br></br>//</br></br>Anna likes to have fun with the code using the data from our walking challenge. Last year she used AfterEffects to produce a wondrous data-driven animation, and this year she is going to chronicle a different coding project day-by-day (or, more likely, whenever she has time and feels like it).</br></br>Each iteration will build on the one before (maybe) and Anna has no idea where it will end up, and that's OK by her.</span>
 </div>
+
 <script>
 	//create the arrays we're about to call.
 	var Steps_Total = [];
+	var KM_Total = [];
 
 $(document).ready(function(){
 //Get data for total steps
 $.getJSON('https://opensheet.elk.sh/1ge_ZNYXJvtNHTmuO9qp8sUx2IMug40MvEsmrXa7KXDY/TOT',
+//total steps
 function (data) {
 		for (var i = 0; i < data.length; i++) {
 			 Steps_Total.push(data[i].STEPS_TOTAL);
 			 //console.log("we walked " + new Intl.NumberFormat().format(Steps_Total));
 			 const Steps_Total_Format = new Intl.NumberFormat().format(Steps_Total);
 			 console.log(Steps_Total_Format);
-			 document.getElementById("result").innerHTML = Steps_Total_Format;
+			 document.getElementById("totalresult").innerHTML = Steps_Total_Format;
+			 KM_Total.push(data[i].KM_TOTAL);
+			 const KM_Total_Format = new Intl.NumberFormat().format(KM_Total) + ' kilometres.';
+			 console.log(KM_Total_Format);
+			 document.getElementById("KMresult").innerHTML = KM_Total_Format;
 		}
-});
+	}
+);
 })
+</script>
+
 </script>
 </body>
 </html>
