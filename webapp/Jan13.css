@@ -31,11 +31,12 @@ footer{
   position: fixed;
   bottom: 20px;
   left: 20px;
+  color: #f0f342;
   font-size: 2vw;
   font-weight: 500;
   text-align: left;
   height:auto;
-  color: #f0f342;
+
 }
 
 #above{
@@ -60,6 +61,24 @@ footer{
   font-size: 20vw;
   line-height: 0.01vw;
   letter-spacing: 1vw;
+}
+
+/* Hyperlink styling */
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
 }
 
 .tooltip {
