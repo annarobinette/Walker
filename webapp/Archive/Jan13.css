@@ -1,0 +1,85 @@
+body {
+  background-color: #d33d3e;
+  font-family: 'Spline Sans', sans-serif;
+  text-align: center;
+  color: #f0f342;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+.center {
+  vertical-align: center;
+}
+
+.date {
+  position: fixed;
+  top: 20px;
+  left: 40px;
+  font-size: 1.5vw;
+  letter-spacing: 0.05vw;
+  text-align: left;
+  margin-bottom: 1000px;
+}
+
+p {
+  color: #f0f342;
+  font-weight: 300;
+  border: 0px solid green;
+}
+
+#above{
+    font-size: 5vw;
+    letter-spacing: 0.1vw;
+}
+
+#below{
+  font-size: 5vw;
+  letter-spacing: 0.1vw;
+}
+
+#KMresult{
+  font-weight: 700;
+  font-size: 10vw;
+  line-height: 0.01vw;
+  letter-spacing: 0.1vw;
+}
+
+#totalresult {
+  font-weight: 700;
+  font-size: 20vw;
+  line-height: 0.01vw;
+  letter-spacing: 1vw;
+}
+
+.tooltip {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 2vw;
+  text-align: left;
+  height:auto;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 37vw;
+  height: auto;
+  border-radius: 6px;
+  border-color: #48d244;
+  border-width: 5px;
+  background-color: white;
+  padding: 2vw;
+  font-weight: 300;
+  color: #d33d3e;
+  line-height: 1.2;
+  bottom: 100%;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
