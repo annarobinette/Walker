@@ -27,6 +27,17 @@ p {
   border: 0px solid green;
 }
 
+footer{
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 2vw;
+  font-weight: 500;
+  text-align: left;
+  height:auto;
+  color: #f0f342;
+}
+
 #above{
     font-size: 5vw;
     letter-spacing: 0.1vw;

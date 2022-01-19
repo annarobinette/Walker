@@ -1,5 +1,5 @@
 *{
-  margin: 0px;
+  margin: auto;
   padding: 0px;
   box-sizing: border-box;
   background-color: #dfd4f3;
@@ -9,6 +9,17 @@
 header{
   width: 100%;
   height: 10vw;
+  background-color: #dfd4f3;
+}
+
+footer{
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 2vw;
+  font-weight: 500;
+  text-align: left;
+  height:auto;
 }
 
 .page_title {
@@ -16,44 +27,89 @@ header{
   top: 20px;
   left: 40px;
   font-size: 2.5vw;
-  letter-spacing: 0.05vw;
+  letter-spacing: 0.1vw;
   text-align: left;
+  font-weight: 500;
 }
 
 body {
   background-color: #dfd4f3;
   font-family: 'Spline Sans', sans-serif;
-  font-size: 40px;
-  width: 80%;
-  min-height: 100vh;
-  text-align: center;
+  width: 70%;
+  font-size: 15px;
+  text-align: left;
   font-weight: 300;
-  align-items: center;
 }
 
 [class^="box-"] {
 /* To place the letter at the center */
   display: grid;
   place-items: center;
+  /*border-style: solid;
+  border-width: 2px 0px 3px;
+  padding: 10px 0px 15px;*/
 }
 
 .container {
   display: grid;
-  gap: 20px;
+  gap: 1vw;
   grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,1fr);
-  column-gap:  50px;
-  row-gap:  50px;
-  align-items: center;
-  justify-content: center;
+  grid-template-rows: repeat(3,auto);
+  margin:auto;
+  column-gap:  1vw;
+  row-gap:  1vw;
+  align-items: start;
+  margin: 5vw 0px 10vw;
 }
 
 p {
+  font-size: 2vw;
+  text-align: left;
+  font-weight: 300;
+  line-height: 1.3;
+  width: 80%;
+}
+
+p.about:{
+  margin-bottom: 50px;
+}
+.post-date{
+  font-size: 13px;
+  letter-spacing: 0.05vw;
+  text-align: left;
+  margin: 10px 0px 5px;
+  font-weight: 600;
+}
+
+.post-title{
+  font-size: 15px;
+  letter-spacing: 0.05vw;
+  text-align: left;
 
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
 
+/* Hyperlink styling */
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
 
 /*Tool tip details*/
 

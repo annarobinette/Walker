@@ -17,6 +17,16 @@ p {
   border: 0px solid green;
 }
 
+footer{
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 2vw;
+  font-weight: 500;
+  text-align: left;
+  height:auto;
+}
+
 #above{
     text-transform: uppercase;
     font-size: 5vw;
