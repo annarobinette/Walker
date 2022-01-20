@@ -117,21 +117,21 @@ p {
 }
 
 .item-data{
-  font-size: 3vw;
+  font-size: 3vh;
   letter-spacing: 0.05vw;
   text-align: left;
   font-weight: 700;
 }
 
 .item-data-big{
-  font-size: 5vw;
+  font-size: 5vh;
   letter-spacing: 0.05vw;
   text-align: left;
   font-weight: 700;
 }
 
 .item-data-bigger{
-  font-size: 7vw;
+  font-size: 7vh;
   letter-spacing: 0.05vw;
   text-align: left;
   font-weight: 700
@@ -139,7 +139,7 @@ p {
 }
 
 .item-data-ranking{
-  font-size: 1vw;
+  font-size: 1vh;
   letter-spacing: 0.05vw;
   text-align: left;
   font-weight: 600;
