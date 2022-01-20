@@ -26,7 +26,7 @@
 		var KM_Total = [];
 		var ppl_len = [];
 		var days_len = [];
-				var rank_1 = [];
+		var rank_1 = [];
 		var steps_avg = [];
 
 	$(document).ready(function(){
@@ -64,7 +64,7 @@
 						console.log(input_IND)
 
 				//RANKINGS
-																		$.each(input_IND, function(index, {RANK, NAME, StepsTotal}){
+									$.each(input_IND, function(index, {RANK, NAME, StepsTotal}){
             			$("#rank_1").append(RANK + '&emsp;'+ NAME + '&emsp;'+ StepsTotal + '<br>');
 								})
 
@@ -82,9 +82,6 @@
 			);
 
 		})
-
-
-
 		</script>
 	</script>
 

@@ -6,7 +6,7 @@
 *{
   margin: auto;
   padding: 0px;
-  
+
   color: var(--fg);
 }
 body {
@@ -139,7 +139,7 @@ p {
 }
 
 .item-data-ranking{
-  font-size: 1.8vw;
+  font-size: 1vw;
   letter-spacing: 0.05vw;
   text-align: left;
   font-weight: 600;
