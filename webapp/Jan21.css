@@ -75,7 +75,7 @@ p {
 
   tr {
   height: 5.8%;
-  margin: 1.5vh;
+  margin: 2vh;
 
   }
 
@@ -83,9 +83,9 @@ p {
     width: 10%;
     text-align: right;
     vertical-align: bottom;
-    font-size: 2vw;
-    padding-right: 1vw;
-    padding-bottom: 0.5vw;
+    font-size: 2vh;
+    padding-right: 0.8vw;
+    padding-bottom: 0.6vh;
     font-weight: 500;
   }
 
@@ -93,7 +93,7 @@ p {
     width: 60%;
     text-align: left;
     vertical-align: bottom;
-    font-size: 3vw;
+    font-size: 3vh;
     font-weight: 400;
   }
 
@@ -101,8 +101,10 @@ p {
     width: 30%;
     text-align: right;
     vertical-align: bottom;
-    font-size: 3vw;
+    font-size: 3vh;
     font-weight: 300;
+    letter-spacing: 0.1vw;
+    font-kerning: none;
   }
 
 
@@ -132,6 +134,8 @@ a:active {
   font-size: 2vw;
   text-align: left;
   height:auto;
+  font-size: 3vh;
+
 }
 
 .tooltip .tooltiptext {
