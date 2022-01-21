@@ -1,9 +1,13 @@
+:root {
+  --fg: #007848;
+  --bg: #dfd4f3;
+}
+
 *{
   margin: auto;
   padding: 0px;
   box-sizing: border-box;
-  background-color: #dfd4f3;
-  color: #007848;
+  color: var(--fg);
 }
 
 header{
@@ -15,6 +19,7 @@ header{
 footer{
   position: fixed;
   bottom: 20px;
+  background-color: #dfd4f3;
   left: 20px;
   font-size: 2vw;
   font-weight: 500;
@@ -33,7 +38,7 @@ footer{
 }
 
 body {
-  background-color: #dfd4f3;
+  background-color: var(--bg);
   font-family: 'Spline Sans', sans-serif;
   width: 70%;
   font-size: 15px;
@@ -57,9 +62,9 @@ body {
   grid-template-rows: repeat(3,auto);
   margin:auto;
   column-gap:  1vw;
-  row-gap:  1vw;
+  row-gap:  2vw;
   align-items: start;
-  margin: 5vw 0px 10vw;
+  margin: 5vw 0px 5vw;
 }
 
 p {
@@ -132,7 +137,7 @@ a:active {
   background-color: white;
   padding: 2vw;
   font-weight: 300;
-  color: #d33d3e;
+  color: var(--fg);
   line-height: 1.2;
   bottom: 100%;
 

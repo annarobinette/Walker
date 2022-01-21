@@ -1,6 +1,6 @@
 :root {
-  --fg: #b2d3d6;
-  --bg: #3858b3;
+  --fg: #f1f0ed;
+  --bg: #01a161;
 }
 
 *{
@@ -10,10 +10,10 @@
 }
 body {
   background-color: var(--bg);
-  width: 70%;
+  width: 80%;
   font-family: 'Spline Sans', sans-serif;
   text-align: center;
-  color: var(--bg);
+  color: var(--fg);
   font-weight: 300;
 }
 
@@ -35,71 +35,76 @@ footer{
 
 .page_title {
   position: fixed;
-  top: 20px;
-  left: 40px;
-  font-size: 2.5vw;
+  top: 2vh;
+  left: 4vh;
+  font-size: 2.5vh;
   letter-spacing: 0.1vw;
   text-align: left;
   font-weight: 500;
+  color: var(--fg);
 }
 
 .date {
   position: fixed;
-  top: 20px;
-  left: 40px;
-  font-size: 1.5vw;
+  top: 6vh;
+  left: 4vh;
+  font-size: 1.5vh;
   letter-spacing: 0.05vw;
   text-align: left;
   margin-bottom: 1000px;
+  color: var(--fg);
 }
 
 p {
-  color: var(--fg);
-  font-weight: 300;
+  color: var(--bg);
   border: 0px solid green;
 }
 
-.chart_div{
-  width: 100%;
-  background-color: var(--bg);
-}
-
-[class^="box-"] {
-/* To place the letter at the center */
-  display: grid;
-  place-items: center;
-  /*border-style: solid;
-  border-width: 2px 0px 3px;
-  padding: 10px 0px 15px;*/
-}
 
 .container {
-  display: grid;
-  gap: 1vw;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(3,auto);
-  margin:auto;
-  column-gap:  1vw;
-  row-gap:  1vw;
-  align-items: start;
-  margin: 5vw 0px 10vw;
-}
+  height: 65vh;
+  max-height: 65vh;
+  width: 60%;
+  }
 
-#above{
-    font-size: 5vw;
-    letter-spacing: 0.1vw;
-}
+  table {
+    width: 100%;
+    border-spacing:1vh;
+  }
 
-#below{
-  font-size: 5vw;
-  letter-spacing: 0.1vw;
-}
 
-#KMresult{
-}
+  tr {
+  height: 5.8%;
+  margin: 1.5vh;
 
-#totalresult {
-}
+  }
+
+  .rank{
+    width: 10%;
+    text-align: right;
+    vertical-align: bottom;
+    font-size: 2vw;
+    padding-right: 1vw;
+    padding-bottom: 0.5vw;
+    font-weight: 500;
+  }
+
+  .name{
+    width: 60%;
+    text-align: left;
+    vertical-align: bottom;
+    font-size: 3vw;
+    font-weight: 400;
+  }
+
+  .steps{
+    width: 30%;
+    text-align: right;
+    vertical-align: bottom;
+    font-size: 3vw;
+    font-weight: 300;
+  }
+
 
 /* Hyperlink styling */
 

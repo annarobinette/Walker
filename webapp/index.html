@@ -14,79 +14,11 @@
 		document.write(today);</script>
 	</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  <link rel="stylesheet" type="text/css" href="Jan21.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-<script>
-		//create the arrays we're about to call.
-		var Steps_Total = [];
-		var input_IND = [];
-		var KM_Total = [];
-		var ppl_len = [];
-		var days_len = [];
-		var rank_1 = [];
-		var steps_avg = [];
-
-	$(document).ready(function(){
-	//Get data for total steps
-	$.getJSON('https://opensheet.elk.sh/1ge_ZNYXJvtNHTmuO9qp8sUx2IMug40MvEsmrXa7KXDY/TOT',
-	//TOT
-	function (data) {
-			for (var i = 0; i < data.length; i++) {
-				Steps_Total.push(data[i].STEPS_TOTAL);
-				//console.log("we walked " + new Intl.NumberFormat().format(Steps_Total));
-				const Steps_Total_Format = new Intl.NumberFormat().format(Steps_Total);
-				console.log(Steps_Total_Format);
-				document.getElementById("totalresult").innerHTML = Steps_Total_Format;
-
-				KM_Total.push(data[i].KM_TOTAL);
-				const KM_Total_Format = new Intl.NumberFormat().format(KM_Total) + ' km';
-				console.log(KM_Total_Format);
-				document.getElementById("KMresult").innerHTML = KM_Total_Format;
-			}
-		}
-		);
-
-		$.getJSON('https://opensheet.elk.sh/1ge_ZNYXJvtNHTmuO9qp8sUx2IMug40MvEsmrXa7KXDY/IND',
-		//IND
-		function (data) {
-				for (var i = 0; i < data.length; i++) {
-					 //input_IND.push({'rank': data[i].RANK, 'name': data[i].NAME});
-					 if (data[i].Status == "Valid" ) {
-						 input_IND.push(data)
-					 		};
-							input_IND = data
-				 input_IND.sort((a, b) => (a.RANK > b.RANK) ? 1 : -1)
-					 		};
-				data = input_IND
-						console.log(input_IND)
-
-				//RANKINGS
-									$.each(input_IND, function(index, {RANK, NAME, StepsTotal}){
-            			$("#rank_1").append(RANK + '&emsp;'+ NAME + '&emsp;'+ StepsTotal + '<br>');
-								})
-
-								;
-
-				//Number of people
-							document.getElementById("ppl_len").innerHTML = input_IND.length -1
-
-					// KM_Total.push(data[i].KM_TOTAL);
-				//	 const KM_Total_Format = new Intl.NumberFormat().format(KM_Total) + ' km';
-					// console.log(KM_Total_Format);
-					// document.getElementById("KMresult").innerHTML = KM_Total_Format;
-
-			}
-			);
-
-		})
-		</script>
-	</script>
-
 </head>
-
 
 <header><p class="page_title">Walk-er Step Count Challenge 2022</p>
 	<p class="date"><script>
@@ -98,43 +30,53 @@
 		document.write(today);
 		</script></p>
 </header>
+
 <body>
-<div class="container">
-
-
-	<div class="box-B">
-		<div class="item-lead">PEOPLE</div>
-		<div class="item-data"><p id="ppl_len"></p></div>
-		</div>
-
-	<div class="box-C">
-		<div class="item-lead">DAYS</div>
-		<div class="item-data"><p id="days_len">10</p></div>
-		</div>
-
-		<div class="box-D">
-			<div class="item-lead">We have walked</div>
-			<div class="item-data-bigger"><p id="totalresult"></p></div>
-			<div class="item-lead">steps so far,</div>
-			</div>
-
-	<div class="box-E">
-				<div class="item-lead">which is equal to</div>
-					<div class="item-data-big"><p id="KMresult"></p></div>
-		</div>
-
-	<div class="box-F">
-		<div class="item-lead">RANKINGS</div>
-		<div class="item-data-ranking"><p id="rank_1"></p></div>
-		</div>
-
-
-
+	<div class="container"><div id="outputDiv"></div></div>
 </body>
+		<script async>
+				//create the arrays we're about to call.
+				var newTable = "<table>";
+				var Steps_Total = [];
+				var Steps_Total_Format = [];
+
+			$(document).ready(function(){
+
+				$.getJSON('https://opensheet.elk.sh/1ge_ZNYXJvtNHTmuO9qp8sUx2IMug40MvEsmrXa7KXDY/IND',
+				//IND
+				function (data) {
+						for (var i = 0; i < data.length; i++) {
+							 //get all data
+							 if (data[i].Status == "Valid" ) {
+								 input_IND.push(data)
+							 		};
+									input_IND = data
+
+									input_IND.sort((a, b) => (a.RANK > b.RANK) ? 1 : -1)
+							 		};
+
+						data = input_IND;
+						// console.log(input_IND[0].RANK);
+
+
+						for (var i = 1; i < input_IND.length; i++) {
+							Steps_Total = input_IND[i].StepsTotal;
+			 			 	var Steps_Total_Format = new Intl.NumberFormat().format(Steps_Total);
+							newTable += "<tr><td class='rank'>"+input_IND[i].RANK+"</td>"+"<td class='name'>"+input_IND[i].NAME+"</td>"+"<td class='steps'>"+Steps_Total_Format+"</td></tr>";
+							}
+						newTable += "</table>";
+						//console.log(newTable);
+							document.getElementById("outputDiv").innerHTML = newTable;
+						}
+					);
+
+				})
+				</script>
+
 <footer>
 	<a href="Archive/archive_index.html">Archive</a>
 	<div class="tooltip">?
-	  <span class="tooltiptext"><b>UPDATE 21 January 2021</b></br>Pulling in data from another sheet and arranging data to give rankings. Experimenting with CSS grids with some effect.</br></br>//</br></br>Anna likes to have fun with the code using the data from our walking challenge. Last year she used AfterEffects to produce a wondrous data-driven animation, and this year she is going to chronicle a different coding project day-by-day (or, more likely, whenever she has time and feels like it).</br></br>Each iteration will build on the one before (maybe) and Anna has no idea where it will end up, and that's OK by her.</span>
+	  <span class="tooltiptext"><b>UPDATE 21 January 2021</b></br>Pulling in data from another sheet and arranging data to give rankings.</br></br>//</br></br>Anna likes to have fun with the code using the data from our walking challenge. Last year she used AfterEffects to produce a wondrous data-driven animation, and this year she is going to chronicle a different coding project day-by-day (or, more likely, whenever she has time and feels like it).</br></br>Each iteration will build on the one before (maybe) and Anna has no idea where it will end up, and that's OK by her.</span>
 	</div>
 </footer>
 </html>
